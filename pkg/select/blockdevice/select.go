@@ -58,10 +58,12 @@ func (c *Config) getCandidateDevices(bdList *apis.BlockDeviceList) (*apis.BlockD
 			FilterBlockDeviceName,
 		)
 	} else {
+		if c.ClaimSpec.DeviceType != "sparse" {
+			// Unless explicitly specify DeviceType as sparse, device sparse will not be included
+			filterKeys = append(filterKeys, FilterOutSparseBlockDevices)
+		}
+
 		filterKeys = append(filterKeys,
-			// Sparse BDs can be claimed only by manual selection. Therefore, all
-			// sparse BDs will be filtered out in auto mode
-			FilterOutSparseBlockDevices,
 			FilterDeviceType,
 			FilterVolumeMode,
 			FilterNodeName,
