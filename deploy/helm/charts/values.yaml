@@ -51,6 +51,7 @@ ndm:
     enableSeachest: false
     enableUdevProbe: true
     enableSmartProbe: true
+    enableMountProbe: true
   metaConfig:
     nodeLabelPattern: ""
     deviceLabelTypes: ""

@@ -21,6 +21,9 @@ data:
       - key: smart-probe
         name: smart probe
         state: {{ .Values.ndm.probes.enableSmartProbe }}
+      - key: mount-probe
+        name: mount probe
+        state: {{ .Values.ndm.probes.enableMountProbe }}
     filterconfigs:
       - key: os-disk-exclude-filter
         name: os disk exclude filter
